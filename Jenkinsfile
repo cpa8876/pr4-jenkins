@@ -1,5 +1,5 @@
 /* import shared library */
-@Library('narcisse-shared-library') _ 
+/* @Library('narcisse-shared-library')ry *_ 
 pipeline {
     agent none
     
