@@ -1,5 +1,5 @@
 /* import shared library */
-/* @Library('narcisse-shared-library')ry *_ 
+/* @Library('narcisse-shared-library')*/
 pipeline {
     agent none
     
@@ -57,7 +57,7 @@ pipeline {
             }
           }
       }
-       post {
+       /* post {
         always{
            script{
                slackNotifier currentBuild.result}
@@ -75,4 +75,4 @@ pipeline {
            }
          }*/
 
-    }
+    } */
