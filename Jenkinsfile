@@ -44,7 +44,7 @@ pipeline {
 
                stage("Deploy app in production") {
                     when {
-                       expression { GIT_BRANCH == 'origin/master' }
+                       expression { GIT_BRANCH == 'origin/main' }
                     }
                    steps {
                        sh '''
