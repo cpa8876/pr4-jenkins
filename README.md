@@ -9,7 +9,10 @@
 ## To deploy
 1. execute command docker-compose
 
-```$ sudo docker-compose up -d ```
+```md
+$ sudo docker-compose up -d
+
+ ```
 
 ## Version
-1. 23/03/2025 18:00 : Creation of sign up Github, 
+1. 23/03/2025 18:00 : Creation of sign up Github
