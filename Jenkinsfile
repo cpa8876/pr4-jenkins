@@ -29,16 +29,17 @@ pipeline {
         stage('Prepare ansible environment') {
             agent any
             environment {
-                VAULTKEY = credentials('vaultkey')
+                /*VAULTKEY = credentials('vaultkey')*/
+                VAULTKEY = "devops"
             }
             steps {
-               /* sh 'echo \$VAULTKEY > vault.key' */
-                sh 'echo "devops" > vault.key'
+               sh 'echo \$VAULTKEY > vault.key'
             }
         }
         stage('Test and deploy the application') {
             environment {
-                SUDOPASS = credentials('sudopass')
+                /*SUDOPASS = credentials('sudopass')*/
+                SUDOPASS = "Narcisse.123@"
             }
             agent { docker { image 'registry.gitlab.com/robconnolly/docker-ansible:latest' } }
             stages {
