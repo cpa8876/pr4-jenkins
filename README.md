@@ -21,4 +21,4 @@ sudo docker-compose up -d
 ## Version
 
 1. 23/03/2025 18:00 : Creation of sign up Github.
-1. 24/03/2025 12:00 : Mise à jour du fichier README.md et remplacement de 'master' par 'main' dazzns les scripts
+1. 24/03/2025 12:00 : Maj README.md et remplacement de 'master' par 'main'
