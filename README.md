@@ -1,10 +1,9 @@
-
 # jenkins-pipeline-ansible
 
 ## Objectives
 
-1. Deploy a CI/CD pipeline of deployment of a server odoo
-2. Use jenkins, github, docker, ansible
+1. Deploy a CI/CD pipeline of deployment of a server odoo.
+1. Use jenkins, github, docker, ansible.
 
 ## Architecture
 
@@ -21,4 +20,4 @@ sudo docker-compose up -d
 
 ## Version
 
-1. 23/03/2025 18:00 : Creation of sign up Github
+1. 23/03/2025 18:00 : Creation of sign up Github.
