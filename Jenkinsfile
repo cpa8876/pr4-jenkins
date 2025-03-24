@@ -39,7 +39,7 @@ pipeline {
         stage('Test and deploy the application') {
             environment {
                 /*SUDOPASS = credentials('sudopass')*/
-                SUDOPASS = "Narcisse.123@"
+                SUDOPASS = "EYDtWCYmDCWW2mxk"
             }
             agent { docker { image 'registry.gitlab.com/robconnolly/docker-ansible:latest' } }
             stages {
