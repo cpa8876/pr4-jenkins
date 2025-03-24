@@ -32,7 +32,8 @@ pipeline {
                 VAULTKEY = credentials('vaultkey')
             }
             steps {
-                sh 'echo \$VAULTKEY > vault.key'
+#                sh 'echo \$VAULTKEY > vault.key'
+                sh 'echo "devops" > vault.key'
             }
         }
         stage('Test and deploy the application') {
