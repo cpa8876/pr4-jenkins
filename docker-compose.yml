@@ -13,3 +13,16 @@ services:
       - /opt/jenkins-training/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
+
+  server:
+    image: debian:latest
+    restart: always
+    privileged: true
+    user: root
+    ports:
+      - 8180:8080
+    container_name: server-deb12-dckr
+    volumes:
+      - /opt/jenkins-training/jenkins_compose/server:/var/server_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
