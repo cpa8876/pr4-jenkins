@@ -24,6 +24,7 @@ sudo docker-compose up -d
 1. 24/03/2025 12:00 : Maj README.md et remplacement de 'master' par 'main'.
 1. 24/03/2025 18:00 : Maj du mdp.
 1. 24/03/2025 14:00 : Maj fichier ansible.cfg. Remplacer:
+1. 27/03/2025 21:00 : Maj fichier jenkinsfile
 
 md``̀
 \[defaults\] inventory:$PWD/inventory.yml par inventory:$PWD/hosts.yml. /
