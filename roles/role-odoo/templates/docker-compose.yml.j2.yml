@@ -1,3 +1,4 @@
+---
 version: '2'
 services:
   db:
@@ -9,7 +10,7 @@ services:
       - POSTGRES_DB=postgres
     restart: always             # run as a service
     volumes:
-      - ../data-odoo/postgresql:/var/lib/postgresql/data
+      - ../data-odoo/postgresql:/var/lib/postgresql/data
 
   odoo17:
     image: odoo:17
@@ -33,4 +34,4 @@ services:
       # - ./entrypoint.sh:/entrypoint.sh
       - ../data-odoo/addons:/mnt/extra-addons
       - ../data-odoo/etc:/etc/odoo
-    
+---
