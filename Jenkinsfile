@@ -41,10 +41,8 @@ pipeline {
                 SUDOPASS = credentials('sudopass')
             }
             agent { docker { image 'registry.gitlab.com/robconnolly/docker-ansible:latest' } }
-            agent { docker { image 'ansible/ansible:latest' } }
             stages {
-
-        stage("Deploy app in production") {
+                stage("Deploy app in production") {
                     when {
                        expression { GIT_BRANCH == 'origin/main' }
                     }
