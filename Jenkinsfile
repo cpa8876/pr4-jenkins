@@ -39,7 +39,7 @@ pipeline {
             environment {
                 SUDOPASS = credentials('sudopass')
             }
-            #agent { docker { image 'registry.gitlab.com/robconnolly/docker-ansible:latest' } }
+            agent { docker { image 'registry.gitlab.com/robconnolly/docker-ansible:latest' } }
             agent { docker { image 'ansible/ansible:latest' } }
             stages {
 
