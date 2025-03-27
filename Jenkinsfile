@@ -35,6 +35,7 @@ pipeline {
                sh 'echo \$VAULTKEY > vault.key'
             }
         }
+
         stage('Test and deploy the application') {
             environment {
                 SUDOPASS = credentials('sudopass')
