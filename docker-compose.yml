@@ -2,13 +2,13 @@ version: '3'
 services:
   jenkins:
     image: jenkins/jenkins:lts
-    restart: always
     privileged: true
     user: root
     ports:
       - 8280:8080
       - 50000:50000
     container_name: jenkins
+    restart: always
     volumes:
       - /opt/jenkins-training/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
@@ -19,11 +19,19 @@ services:
 #    restart: always
     privileged: true
     user: root
-    ports:
-      - 3000:3000
     container_name: project-server-deb-dckr
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - jenkins
+    ports:
+      - "3000:3000"
+      - "2222:22"
+      - "10017:10017"
+      - "20017:20017"
+    tty: true
+#    command: --
     volumes:
-      - /opt/jenkins-training/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /opt/jenkins-training/jenkins_compose/data_server:/var/jenkins_home
+    restart: always             # run as a service

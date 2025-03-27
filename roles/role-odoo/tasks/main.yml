@@ -6,7 +6,7 @@
 - name: Stop and remove existing Odoo container if the file exists
   command: docker-compose down
   args:
-    chdir: "/opt/jenkins-training/odoo16"
+    chdir: "/opt/jenkins-training/odoo17"
   when: compose_file_stat.stat.exists
 - name: Remove existing docker-compose.yml
   file:
@@ -18,16 +18,16 @@
     src: docker-compose.yml.j2
     dest: "{{ compose_file | trim }}"
 - name: Check if Odoo container is running
-  command: docker ps --filter "name={{ project_name }}_odoo16" --format "{{
+  command: docker ps --filter "name={{ project_name }}_odoo17" --format "{{
     '{{.Names}}' }}"
   register: odoo_container
   ignore_errors: true
 - name: Stop and remove existing Odoo container
   command: docker-compose down
   args:
-    chdir: "/opt/jenkins-training/odoo16"
-  when: odoo_container.stdout == project_name + '_odoo16'
+    chdir: "/opt/jenkins-training/odoo17"
+  when: odoo_container.stdout == project_name + '_odoo17'
 - name: Start Odoo container
-  command: docker-compose up -d
+  command: docker compose up -d
   args:
-    chdir: "/opt/jenkins-training/odoo16"
+    chdir: "/opt/jenkins-training/odoo17"

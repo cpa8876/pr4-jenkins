@@ -40,6 +40,7 @@ RUN apt-get install -y \
 RUN echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/sudoers
 
 RUN mkdir /app
+RUN mkdir -p "/opt/jenkins-training/odoo17"
 
 RUN useradd -ms /bin/bash -p ${USER} ${USER}
 RUN mkdir /home/${USER}/.ssh
@@ -73,6 +74,8 @@ RUN cat /home/${USER}/.ssh/id_rsa.pub >>/home/${USER}/.ssh/authorized_keys
 RUN chmod 644 /home/${USER}/.ssh/id_rsa.pub
 RUN chmod 644 /home/${USER}/.ssh/authorized_keys
 
+#RUN sudo /etc/init.d/docker start
+
 
 # Print the UID and GID
 CMD sh -c "echo 'Inside Container:' && echo 'User: $(whoami) UID: $(id -u) GID: $(id -g)'"
@@ -80,11 +83,18 @@ CMD sh -c "echo 'Inside Container:' && echo 'User: $(whoami) UID: $(id -u) GID: 
 # start ssh with port exposed
 USER root
 RUN service ssh start
+# RUN service docker start
+RUN sudo service docker start
 
-EXPOSE 2222:22
-EXPOSE 8080:80
+EXPOSE 22
+EXPOSE 80
+EXPOSE 30016
+EXPOSE 40016
 
-CMD ["/usr/sbin/sshd", "-D"]
+#CMD [["/lib/systemd/systemd"]
+#CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["sudo", "/etc/init.d/docker", "start"]
+
 
 # Lancement du service docker
 #RUN sudo systemctl start docker
@@ -104,6 +114,8 @@ WORKDIR /home/${USER}
 # Ajout des sources
 ADD . /app/
 
+WORKDIR /opt/jenkins-training/odoo17/
+
 # On expose le port 3000
 # EXPOSE 3000
 
@@ -114,5 +126,6 @@ ADD . /app/
 # CMD node server.js
 
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
-
+ENTRYPOINT ["/lib/systemd/systemd"]
 CMD ["tail", "-f", "/dev/null"]
+
